@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+canvas {
+    border: 1px solid rgb(61, 78, 92);
+    /* background-color: #fff; */
+}
+
+.toolbox {
+    background-color: rgb(132, 132, 132);
+    border: 1px solid rgb(61, 61, 61);
+    display: flex;
+    width: 502px;
+    padding: 0.5rem;
+    border-top: 0;
+}
+
+.toolbox > * {
+    /* all the direct children of .toolbox */
+    background-color: #fff;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    height: 25px;
+    width: 25px;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.toolbox > *:nth-last-child(2) {
+    margin-left: auto;
+    /* color: red; */
+    width:fit-content;
+}
+
+.toolbox > *:last-child {
+    /* margin-left: auto; */
+}
