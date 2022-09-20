@@ -78,7 +78,13 @@ decreaseBtn.addEventListener('click', () => {
     updateSizeOnScreen();
 })
 
-clearEl.addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
+clearEl.addEventListener('click', () => {
+    //Clear canvas:
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //Fill the canvas with white background:
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+})
 
 
 //Saving images:
