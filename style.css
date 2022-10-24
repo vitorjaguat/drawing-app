@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
+@font-face {
+    font-family: 'Bishunziti';
+    src: url('fonts/bishunziti.ttf');
+}
+
 * {
     box-sizing: border-box;
 }
@@ -15,9 +20,20 @@ body {
     margin: 0;
 }
 
+.canvas-container {
+    position: relative;
+    /* display: flex; */
+    background-color: #fff;
+    z-index: 0;
+}
+
 canvas {
-    border: 1px solid rgb(61, 78, 92);
-    /* background-color: #fff; */
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    border: 1px dashed rgb(61, 78, 92);
+    z-index: 100;
+    background-color: transparent;
 }
 
 .toolbox {
@@ -47,7 +63,11 @@ canvas {
 
 #size {
     font-size: 0.8rem;
-    displ
+}
+
+#color {
+    font-size: 1rem;
+    padding: 0 0.05rem;
 }
 
 .toolbox > *:nth-last-child(2) {
@@ -59,4 +79,17 @@ canvas {
 
 .toolbox > *:last-child {
     /* margin-left: auto; */
+}
+
+/* Input: */
+.bg-hanzi {
+    z-index: -1;
+    opacity: 0.1;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 23rem;
+    font-family: 'Bishunziti';
 }

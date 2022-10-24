@@ -8,8 +8,8 @@ const clearEl = document.getElementById('clear');
 const ctx = canvas.getContext('2d');
 
 //Fill the canvas with white background:
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+// ctx.fillStyle = "white";
+// ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let size = 10;
 let isPressed = false;
@@ -82,8 +82,8 @@ clearEl.addEventListener('click', () => {
     //Clear canvas:
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //Fill the canvas with white background:
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillStyle = "white";
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
 })
 
 
@@ -101,3 +101,15 @@ function save(canvas) {
     anchor.download = 'image.png';
     anchor.click();
   }
+
+
+  //Input:
+  const input = document.getElementById('input');
+  const canvasContainer = document.getElementById('canvas-container');
+
+  input.addEventListener('input', () => {
+    const hanziEl = document.createElement('span');  
+    hanziEl.innerHTML = input.value;
+    hanziEl.classList.add('bg-hanzi');
+    canvasContainer.prepend(hanziEl);
+  })
