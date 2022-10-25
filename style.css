@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
-
 @font-face {
     font-family: 'Bishunziti';
     src: url('fonts/bishunziti.ttf');
 }
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 
 * {
     box-sizing: border-box;
@@ -11,13 +11,14 @@
 
 body {
     background-color: #c2b1b1;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    margin-bottom: 50px;
 }
 
 .canvas-container {
@@ -25,24 +26,28 @@ body {
     /* display: flex; */
     background-color: #fff;
     z-index: 0;
+    border-radius: 0.4rem 0.4rem 0 0;
+    height: 502px;
 }
 
 canvas {
     /* position: absolute;
     top: 0;
     left: 0; */
-    border: 1px dashed rgb(61, 78, 92);
+    border: 0px dashed rgb(61, 78, 92);
+    border-bottom: 0;
     z-index: 100;
     background-color: transparent;
+    border-radius: 0.4rem 0.4rem 0 0;
 }
 
 .toolbox {
     background-color: rgb(132, 132, 132);
-    border: 1px solid rgb(61, 61, 61);
+    border: none;
     display: flex;
     width: 502px;
     padding: 0.5rem;
-    border-top: 0;
+    border-radius: 0 0 0.3rem 0.3rem;
 }
 
 .toolbox > * {
@@ -59,6 +64,7 @@ canvas {
     margin: 0.25rem;
     padding: 0.25rem;
     cursor: pointer;
+    font-family: inherit;
 }
 
 #size {
@@ -78,7 +84,8 @@ canvas {
 }
 
 .toolbox > *:last-child {
-    /* margin-left: auto; */
+    width: fit-content;
+    font-size: 0.8rem;
 }
 
 /* Input: */
@@ -92,4 +99,37 @@ canvas {
     transform: translate(-50%, -50%);
     font-size: 23rem;
     font-family: 'Bishunziti';
+}
+
+.input-container {
+    background-color: #d9d4d4;
+    /* width: 20rem; */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-container input {
+    border: 0;
+    padding: 12px 15px;
+    font-size: 24px;
+}
+
+.input-container button {
+    border: 0;
+    padding: 10px;
+    align-content: flex-end;
+    border-radius: 0.4rem;
+    font-family: inherit;
+}
+
+/* Title and text */
+h1 {
+    margin-top: 50px;
+}
+
+h1, p {
+    text-align: center;
 }

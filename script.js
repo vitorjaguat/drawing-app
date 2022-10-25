@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d');
 // ctx.fillStyle = "white";
 // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-let size = 10;
+let size = 6;
 let isPressed = false;
 let color = 'black';
 let x;
@@ -105,9 +105,15 @@ function save(canvas) {
 
   //Input:
   const input = document.getElementById('input');
+  const submitBtn = document.getElementById('submit');
+  const form = document.getElementById('form');
   const canvasContainer = document.getElementById('canvas-container');
 
-  input.addEventListener('input', () => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if(canvasContainer.querySelector('.bg-hanzi')) {
+        canvasContainer.querySelector('.bg-hanzi').remove();
+    }
     const hanziEl = document.createElement('span');  
     hanziEl.innerHTML = input.value;
     hanziEl.classList.add('bg-hanzi');
