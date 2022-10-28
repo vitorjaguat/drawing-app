@@ -19,6 +19,7 @@ let y;
 
 canvas.addEventListener('mousedown', (e) => {
     isPressed = true;
+    const rect = canvas.getBoundingClientRect();
     x = e.offsetX;
     y = e.offsetY;
 })
@@ -31,6 +32,7 @@ canvas.addEventListener('mouseup', (e) => {
 
 canvas.addEventListener('mousemove', (e) => {
     if(isPressed) {
+        const rect = canvas.getBoundingClientRect();
         const x2 = e.offsetX;
         const y2 = e.offsetY;
         drawCircle(x2, y2);
@@ -109,13 +111,30 @@ function save(canvas) {
   const form = document.getElementById('form');
   const canvasContainer = document.getElementById('canvas-container');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  function showHanziBG(hanzi) {
     if(canvasContainer.querySelector('.bg-hanzi')) {
         canvasContainer.querySelector('.bg-hanzi').remove();
     }
     const hanziEl = document.createElement('span');  
-    hanziEl.innerHTML = input.value;
+    hanziEl.innerHTML = hanzi;
     hanziEl.classList.add('bg-hanzi');
     canvasContainer.prepend(hanziEl);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    showHanziBG(input.value);
   })
+
+  //Choose-hanzi from lateral
+  const hanziDisplay = document.querySelectorAll('.hanzi-display span');
+
+  hanziDisplay.forEach(hanzi => hanzi.addEventListener('click', () => {
+      const hanziToBG = hanzi.textContent;
+      showHanziBG(hanziToBG);
+  }))
+
+
+
+
+
