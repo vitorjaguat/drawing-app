@@ -143,6 +143,14 @@ function save(canvas) {
     canvasContainer.prepend(hanziEl);
   })
 
+  //Choose-hanzi from lateral
+  const hanziDisplay = document.querySelectorAll('.hanzi-display span');
+
+  hanziDisplay.forEach(hanzi => hanzi.addEventListener('click', () => {
+      const hanziToBG = hanzi.textContent;
+      showHanziBG(hanziToBG);
+  }))
+
   //////Touch
 
   // Get the position of a touch relative to the canvas
