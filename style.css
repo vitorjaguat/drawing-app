@@ -134,6 +134,41 @@ h1, p {
     text-align: center;
 }
 
+/* Choose hanzi */
+body {
+    flex-direction: row;
+}
+
+.choose-hanzi {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+.choose-hanzi:first-of-type {
+    justify-content: flex-end;
+}
+
+.container-center {
+    align-self: flex-start;
+}
+
+.hanzi-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 66px;
+    height: 66px;
+    background-color: #d9d4d4;
+    margin: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
 
 /* Responsiveness */
 @media(max-width: 600px) {
