@@ -1,3 +1,4 @@
+const canvasContainer = document.getElementById('canvas-container');
 const canvas = document.getElementById('canvas');
 const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');
@@ -6,6 +7,28 @@ const colorEl = document.getElementById('color');
 const clearEl = document.getElementById('clear');
 
 const ctx = canvas.getContext('2d');
+const mql = window.matchMedia("(max-width: 600px)");
+console.log(mql);
+if(mql.matches) {
+    ctx.canvas.height = 320;
+    ctx.canvas.width = 320;
+    canvasContainer.style.width = '320px';
+    canvasContainer.style.height = '320px';
+} else {
+    ctx.canvas.height = 500;
+    ctx.canvas.width = 500;
+}
+// mql.addListener(function(e){
+//   if(e.matches){
+//     console.log('enter mobile');
+//   }
+//   else{
+//     console.log('leave mobile');
+//   }
+// });
+// ctx.canvas.height = 320;
+// ctx.canvas.width = 320;
+console.log(ctx);
 
 //Fill the canvas with white background:
 // ctx.fillStyle = "white";
@@ -107,7 +130,7 @@ function save(canvas) {
   const input = document.getElementById('input');
   const submitBtn = document.getElementById('submit');
   const form = document.getElementById('form');
-  const canvasContainer = document.getElementById('canvas-container');
+  
 
   form.addEventListener('submit', e => {
     e.preventDefault();
