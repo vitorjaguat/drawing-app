@@ -13,33 +13,310 @@
     <title>Drawing App</title>
 </head>
 <body>
-
-    <div class="intro-text">
-        <h1>Practice Hanzi</h1>
-        <p>Enter a hanzi and practice hanzi handwriting on the canvas.</p>
-    </div>
-
-    <div class="input-container">
-        <form id="form">
-            <input type="text" name="hanzi" id="input" maxlength="1" placeholder="永" value="永" size="1">
-            <button type="submit" id="submit">Practice now!</button>
-        </form>
-    </div>
-
-    <div class="main" id="main">
-        <div class="canvas-container" id="canvas-container">
-            <canvas id="canvas" width="500" height="500"></canvas>
+    <div class="choose-hanzi" id="choose-hanzi">
+        <div class="hanzi-display">
+            <span>和</span>
         </div>
-        <div class="toolbox">
-            <button id="decrease">-</button>
-            <span id="size">6</span>
-            <button id="increase">+</button>
-            <input type="color" id="color">
-            <button id="save">Save</button>
-            <button id="clear">Clear</button>
+        <div class="hanzi-display">
+            <span>平</span>
+        </div>
+        <div class="hanzi-display">
+            <span>成</span>
+        </div>
+        <div class="hanzi-display">
+            <span>年</span>
+        </div>
+        <div class="hanzi-display">
+            <span>我</span>
+        </div>
+        <div class="hanzi-display">
+            <span>你</span>
+        </div>
+        <div class="hanzi-display">
+            <span>鱼</span>
+        </div>
+        <div class="hanzi-display">
+            <span>虎</span>
+        </div>
+        <div class="hanzi-display">
+            <span>春</span>
+        </div>
+        <div class="hanzi-display">
+            <span>懂</span>
+        </div>
+        <div class="hanzi-display">
+            <span>面</span>
+        </div>
+        <div class="hanzi-display">
+            <span>花</span>
+        </div>
+        <div class="hanzi-display">
+            <span>画</span>
+        </div>
+        <div class="hanzi-display">
+            <span>美</span>
+        </div>
+        <div class="hanzi-display">
+            <span>名</span>
+        </div>
+        <div class="hanzi-display">
+            <span>字</span>
+        </div>
+        <div class="hanzi-display">
+            <span>汉</span>
+        </div>
+        <div class="hanzi-display">
+            <span>葡</span>
+        </div>
+        <div class="hanzi-display">
+            <span>赢</span>
+        </div>
+        <div class="hanzi-display">
+            <span>英</span>
+        </div>
+        <div class="hanzi-display">
+            <span>法</span>
+        </div>
+        <div class="hanzi-display">
+            <span>藏</span>
+        </div>
+        <div class="hanzi-display">
+            <span>贵</span>
+        </div>
+        <div class="hanzi-display">
+            <span>买</span>
+        </div>
+        <div class="hanzi-display">
+            <span>每</span>
+        </div>
+        <div class="hanzi-display">
+            <span>海</span>
+        </div>
+        <div class="hanzi-display">
+            <span>还</span>
+        </div>
+        <div class="hanzi-display">
+            <span>吃</span>
+        </div>
+        <div class="hanzi-display">
+            <span>间</span>
+        </div>
+        <div class="hanzi-display">
+            <span>剪</span>
+        </div>
+        <div class="hanzi-display">
+            <span>贴</span>
+        </div>
+        <div class="hanzi-display">
+            <span>吧</span>
+        </div>
+        <div class="hanzi-display">
+            <span>啊</span>
+        </div>
+        <div class="hanzi-display">
+            <span>没</span>
+        </div>
+        <div class="hanzi-display">
+            <span>朋</span>
+        </div>
+        <div class="hanzi-display">
+            <span>友</span>
+        </div>
+        <div class="hanzi-display">
+            <span>六</span>
+        </div>
+        <div class="hanzi-display">
+            <span>五</span>
+        </div>
+        <div class="hanzi-display">
+            <span>零</span>
+        </div>
+        <div class="hanzi-display">
+            <span>热</span>
+        </div><div class="hanzi-display">
+            <span>冷</span>
+        </div>
+        <div class="hanzi-display">
+            <span>很</span>
+        </div>
+        <div class="hanzi-display">
+            <span>的</span>
+        </div>
+        <div class="hanzi-display">
+            <span>得</span>
+        </div>
+        <div class="hanzi-display">
+            <span>卖</span>
         </div>
     </div>
+
+    <div class="container-center">
+
+        <div class="intro-text">
+            <h1>Practice Hanzi</h1>
+            <p>Enter a hanzi and practice hanzi handwriting on the canvas.</p>
+        </div>
+
+        <div class="input-container">
+            <form id="form">
+                <input type="text" name="hanzi" id="input" maxlength="1" placeholder="永" value="永" size="1">
+                <button type="submit" id="submit">Practice now!</button>
+            </form>
+        </div>
+
+        <div class="main" id="main">
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="toolbox">
+                <button id="decrease">-</button>
+                <span id="size">6</span>
+                <button id="increase">+</button>
+                <input type="color" id="color">
+                <button id="save">Save</button>
+                <button id="clear">Clear</button>
+            </div>
+        </div>
     
+    </div>
+
+    <div class="choose-hanzi" id="choose-hanzi">
+        <div class="hanzi-display">
+            <span>漂</span>
+        </div>
+        <div class="hanzi-display">
+            <span>亮</span>
+        </div>
+        <div class="hanzi-display">
+            <span>洗</span>
+        </div>
+        <div class="hanzi-display">
+            <span>人</span>
+        </div>
+        <div class="hanzi-display">
+            <span>认</span>
+        </div>
+        <div class="hanzi-display">
+            <span>陪</span>
+        </div>
+        <div class="hanzi-display">
+            <span>同</span>
+        </div>
+        <div class="hanzi-display">
+            <span>痛</span>
+        </div>
+        <div class="hanzi-display">
+            <span>流</span>
+        </div>
+        <div class="hanzi-display">
+            <span>浪</span>
+        </div>
+        <div class="hanzi-display">
+            <span>等</span>
+        </div>
+        <div class="hanzi-display">
+            <span>灯</span>
+        </div>
+        <div class="hanzi-display">
+            <span>城</span>
+        </div>
+        <div class="hanzi-display">
+            <span>老</span>
+        </div>
+        <div class="hanzi-display">
+            <span>少</span>
+        </div>
+        <div class="hanzi-display">
+            <span>超</span>
+        </div>
+        <div class="hanzi-display">
+            <span>拍</span>
+        </div>
+        <div class="hanzi-display">
+            <span>照</span>
+        </div>
+        <div class="hanzi-display">
+            <span>课</span>
+        </div>
+        <div class="hanzi-display">
+            <span>奔</span>
+        </div>
+        <div class="hanzi-display">
+            <span>跑</span>
+        </div>
+        <div class="hanzi-display">
+            <span>里</span>
+        </div>
+        <div class="hanzi-display">
+            <span>理</span>
+        </div>
+        <div class="hanzi-display">
+            <span>管</span>
+        </div>
+        <div class="hanzi-display">
+            <span>波</span>
+        </div>
+        <div class="hanzi-display">
+            <span>脑</span>
+        </div>
+        <div class="hanzi-display">
+            <span>脸</span>
+        </div>
+        <div class="hanzi-display">
+            <span>自</span>
+        </div>
+        <div class="hanzi-display">
+            <span>系</span>
+        </div>
+        <div class="hanzi-display">
+            <span>颗</span>
+        </div>
+        <div class="hanzi-display">
+            <span>数</span>
+        </div>
+        <div class="hanzi-display">
+            <span>树</span>
+        </div>
+        <div class="hanzi-display">
+            <span>茶</span>
+        </div>
+        <div class="hanzi-display">
+            <span>差</span>
+        </div>
+        <div class="hanzi-display">
+            <span>察</span>
+        </div>
+        <div class="hanzi-display">
+            <span>静</span>
+        </div>
+        <div class="hanzi-display">
+            <span>紧</span>
+        </div>
+        <div class="hanzi-display">
+            <span>张</span>
+        </div>
+        <div class="hanzi-display">
+            <span>看</span>
+        </div>
+        <div class="hanzi-display">
+            <span>康</span>
+        </div>
+        <div class="hanzi-display">
+            <span>建</span>
+        </div>
+        <div class="hanzi-display">
+            <span>脾</span>
+        </div>
+        <div class="hanzi-display">
+            <span>敢</span>
+        </div>
+        <div class="hanzi-display">
+            <span>勇</span>
+        </div>
+        <div class="hanzi-display">
+            <span>游</span>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
