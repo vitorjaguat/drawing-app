@@ -125,23 +125,28 @@ function save(canvas) {
     anchor.click();
   }
 
+  
 
   //Input:
   const input = document.getElementById('input');
   const submitBtn = document.getElementById('submit');
   const form = document.getElementById('form');
   
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  function showHanziBG(hanzi) {
     if(canvasContainer.querySelector('.bg-hanzi')) {
         canvasContainer.querySelector('.bg-hanzi').remove();
     }
     const hanziEl = document.createElement('span');  
-    hanziEl.innerHTML = input.value;
+    hanziEl.innerHTML = hanzi;
     hanziEl.classList.add('bg-hanzi');
     canvasContainer.prepend(hanziEl);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    showHanziBG(input.value);
   })
+  
 
   //Choose-hanzi from lateral
   const hanziDisplay = document.querySelectorAll('.hanzi-display span');
