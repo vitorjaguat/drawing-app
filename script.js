@@ -30,7 +30,7 @@ if(mql.matches) {
 // ctx.canvas.width = 320;
 console.log(ctx);
 
-//Fill the canvas with white background:
+// Fill the canvas with white background:
 // ctx.fillStyle = "white";
 // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
