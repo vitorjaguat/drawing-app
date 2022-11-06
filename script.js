@@ -8,7 +8,7 @@ const clearEl = document.getElementById('clear');
 
 const ctx = canvas.getContext('2d');
 const mql = window.matchMedia("(max-width: 600px)");
-console.log(mql);
+// console.log(mql);
 if(mql.matches) {
     ctx.canvas.height = 320;
     ctx.canvas.width = 320;
@@ -118,11 +118,61 @@ window.onload = () => {
   };
 
 function save(canvas) {
+    //setting up canvas2
+    const canvas2 = document.createElement('canvas');
+    const ctx2 = canvas2.getContext('2d');
+    const mql2 = window.matchMedia("(max-width: 600px)");
+
+    if(mql2.matches) {
+    ctx2.canvas.height = 320;
+    ctx2.canvas.width = 320;
+    // canvasContainer.style.width = '320px';
+    // canvasContainer.style.height = '320px';
+} else {
+    ctx2.canvas.height = 500;
+    ctx2.canvas.width = 500;
+}
+
+    //ctx2.drawImage(can1, 0, 0) // paint first canvas onto new canvas
+    ctx2.drawImage(canvas, 0, 0);
+
+    //ctx.clearRect(0, 0, width, height) // clear first canvas
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+    //set up white BG:
+    const canvasBG = document.createElement('canvas');
+    const ctxBG = canvasBG.getContext('2d');
+    const mql3 = window.matchMedia("(max-width: 600px)");
+
+    if(mql3.matches) {
+    ctxBG.canvas.height = 320;
+    ctxBG.canvas.width = 320;
+    // canvasContainer.style.width = '320px';
+    // canvasContainer.style.height = '320px';
+} else {
+    ctxBG.canvas.height = 500;
+    ctxBG.canvas.width = 500;
+}
+
+    ctxBG.fillStyle = "white";
+    ctxBG.fillRect(0, 0, ctxBG.canvas.width, ctxBG.canvas.height);
+
+    //ctx.drawImage(background, 0, 0) // draw bg-image on first canvas
+    ctx.drawImage(canvasBG, 0, 0);
+
+    //ctx.drawImage(can2, 0, 0) // draw the (saved) first canvas back to itself
+    ctx.drawImage(canvas2, 0, 0);
+
+    //Saving canvas:
     const data = canvas.toDataURL('image/png');
     const anchor = document.createElement('a');
     anchor.href = data;
     anchor.download = 'image.png';
     anchor.click();
+
+    //Restoring canvas:
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.drawImage(canvas2, 0, 0);
   }
 
   
