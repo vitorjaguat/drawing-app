@@ -162,28 +162,35 @@ function save(canvas) {
     //ctx.drawImage(background, 0, 0) // draw bg-image on first canvas
     ctx.drawImage(canvasBG, 0, 0);
 
-//     //draw hanzi text layer (Not ready)
-//     const canvasHZ = document.createElement('canvas');
-//     const ctxHZ = canvasHZ.getContext('2d');
-//     const mql4 = window.matchMedia("(max-width: 600px)");
+    //draw hanzi text layer (Not ready)
+    const canvasHZ = document.createElement('canvas');
+    const ctxHZ = canvasHZ.getContext('2d');
+    const mql4 = window.matchMedia("(max-width: 600px)");
 
-//     if(mql4.matches) {
-//     ctxHZ.canvas.height = 320;
-//     ctxHZ.canvas.width = 320;
-//     // canvasContainer.style.width = '320px';
-//     // canvasContainer.style.height = '320px';
-// } else {
-//     ctxHZ.canvas.height = 500;
-//     ctxHZ.canvas.width = 500;
-// }
-//     ctxHZ.fillStyle = "grey";
-//     ctxHZ.font = '23rem Bishunziti';
-//     ctxHZ.textBaseline = 'middle';
-//     ctxHZ.textAlign = "center";
-    
-//     ctxHZ.strokeText(selectedHanzi, 0, 0);
-//     ctx.drawImage(canvasHZ, 0, 0);
-//     ctxHZ.clearRect(0, 0, ctxHZ.canvas.width, ctxHZ.canvas.height);
+    if(mql4.matches) {
+    ctxHZ.canvas.height = 320;
+    ctxHZ.canvas.width = 320;
+    // canvasContainer.style.width = '320px';
+    // canvasContainer.style.height = '320px';
+} else {
+    ctxHZ.canvas.height = 500;
+    ctxHZ.canvas.width = 500;
+}
+    ctxHZ.fillStyle = "#f0f0f0";
+    console.log(ctxHZ)
+    ctxHZ.textBaseline = 'middle';
+    ctxHZ.textAlign = "center";
+    ctxHZ.font = "50vh Bishunziti";
+//     let f = new FontFace("Bishunziti", "url('fonts/bishunziti.ttf')");
+//     f.load().then(() => {
+//         console.log(f)
+//         ctxHZ.font = `normal 90px ${f.family}`;
+// });
+    // ctxHZ.strokeText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2, 2);
+    ctxHZ.fillText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2);
+    // ctx.fillText(selectedHanzi, 150, 150)
+    ctx.drawImage(canvasHZ, 0, 0);
+    ctxHZ.clearRect(0, 0, ctxHZ.canvas.width, ctxHZ.canvas.height);
     
     
     //ctx.drawImage(can2, 0, 0) // draw the (saved) first canvas back to itself
