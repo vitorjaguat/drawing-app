@@ -1,0 +1,2 @@
+20221107 
+- Mudar método de inserção de hanziBG: em vez de sobrepor uma div, inserir no próprio canvas através do ctx de um canvas virtual (já está pronto na função save); daí na hora de salvar não precisa criar de novo.

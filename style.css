@@ -178,7 +178,8 @@ h1, p {
     }
 
     .bg-hanzi {
-        font-size: 18rem;
+        font-size: 35vh;
+        padding: 0;
     }
 
     .canvas-container {

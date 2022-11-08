@@ -117,6 +117,7 @@ clearEl.addEventListener('click', () => {
 window.onload = () => {
     const saveButton = document.getElementById('save');
     saveButton.addEventListener('click', () => save(canvas));
+    saveButton.addEventListener('touch', () => save(canvas));
   };
 
 function save(canvas) {
