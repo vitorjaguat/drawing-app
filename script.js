@@ -14,6 +14,27 @@ let color = 'black';
 let x;
 let y;
 
+//Load font:
+const loadFont = document.createElement('div');
+loadFont.innerText = 'Hello';
+loadFont.style.fontFamily = 'Bishunziti';
+loadFont.style.fontSize = '2px';
+loadFont.style.color = 'transparent';
+document.body.appendChild(loadFont);
+
+// (async function loadFonts() {
+//     const font = new FontFace("Bishunziti", "url(./fonts/bishunziti-webfont.woff2)");
+//     // wait for font to be loaded
+//     await font.load();
+//     // add font to document
+//     document.fonts.add(font);
+//     // enable font with CSS class
+//     document.body.classList.add("fonts-loaded");
+//   });
+
+// document.body.style.fontFamily = 'Bishunziti';
+
+
 //Set up canvas and context
 const mql = window.matchMedia("(max-width: 600px)");
 const ctx = canvas.getContext('2d');
@@ -26,25 +47,16 @@ if(mql.matches) {
 } else {
     ctx.canvas.height = 500;
     ctx.canvas.width = 500;
+    canvasContainer.style.width = '500px';
+    canvasContainer.style.height = '500px';
 }
-// mql.addListener(function(e){
-//   if(e.matches){
-//     console.log('enter mobile');
-//   }
-//   else{
-//     console.log('leave mobile');
-//   }
-// });
-// ctx.canvas.height = 320;
-// ctx.canvas.width = 320;
-// console.log(ctx);
 
 // Fill the canvas with white background:
-// ctx.fillStyle = "white";
-// ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 
-
+//Draw with mouse event listeners:
 canvas.addEventListener('mousedown', (e) => {
     isPressed = true;
     x = e.offsetX;
@@ -84,8 +96,10 @@ function drawLine(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+//Color:
 colorEl.addEventListener('input', (e) => color = e.target.value)
 
+//Size:
 function updateSizeOnScreen() {
     sizeEl.innerText = size;
 }
@@ -106,12 +120,13 @@ decreaseBtn.addEventListener('click', () => {
     updateSizeOnScreen();
 })
 
+//Clear btn:
 clearEl.addEventListener('click', () => {
     //Clear canvas:
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     //Fill the canvas with white background:
-    // ctx.fillStyle = "white";
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 })
 
 
@@ -125,71 +140,70 @@ window.onload = () => {
 
 function save(canvas) {
     //setting up canvas2
-    const canvas2 = document.createElement('canvas');
-    const ctx2 = canvas2.getContext('2d');
+//     const canvas2 = document.createElement('canvas');
+//     const ctx2 = canvas2.getContext('2d');
 
-    if(mql.matches) {
-    ctx2.canvas.height = 320;
-    ctx2.canvas.width = 320;
-} else {
-    ctx2.canvas.height = 500;
-    ctx2.canvas.width = 500;
-}
+//     if(mql.matches) {
+//     ctx2.canvas.height = 320;
+//     ctx2.canvas.width = 320;
+// } else {
+//     ctx2.canvas.height = 500;
+//     ctx2.canvas.width = 500;
+// }
 
-    //ctx2.drawImage(can1, 0, 0) // paint first canvas onto new canvas
-    ctx2.drawImage(canvas, 0, 0);
+//     //ctx2.drawImage(can1, 0, 0) // paint first canvas onto new canvas
+//     ctx2.drawImage(canvas, 0, 0);
 
-    //ctx.clearRect(0, 0, width, height) // clear first canvas
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+//     //ctx.clearRect(0, 0, width, height) // clear first canvas
+//     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    //set up white BG:
-    const canvasBG = document.createElement('canvas');
-    const ctxBG = canvasBG.getContext('2d');
+//     //set up white BG:
+//     const canvasBG = document.createElement('canvas');
+//     const ctxBG = canvasBG.getContext('2d');
 
-    if(mql.matches) {
-    ctxBG.canvas.height = 320;
-    ctxBG.canvas.width = 320;
-} else {
-    ctxBG.canvas.height = 500;
-    ctxBG.canvas.width = 500;
-}
+//     if(mql.matches) {
+//     ctxBG.canvas.height = 320;
+//     ctxBG.canvas.width = 320;
+// } else {
+//     ctxBG.canvas.height = 500;
+//     ctxBG.canvas.width = 500;
+// }
 
-    ctxBG.fillStyle = "white";
-    ctxBG.fillRect(0, 0, ctxBG.canvas.width, ctxBG.canvas.height);
+//     ctxBG.fillStyle = "white";
+//     ctxBG.fillRect(0, 0, ctxBG.canvas.width, ctxBG.canvas.height);
 
-    //ctx.drawImage(background, 0, 0) // draw bg-image on first canvas
-    ctx.drawImage(canvasBG, 0, 0);
+//     //ctx.drawImage(background, 0, 0) // draw bg-image on first canvas
+//     ctx.drawImage(canvasBG, 0, 0);
 
-    //draw hanzi text layer (Not ready)
-    const canvasHZ = document.createElement('canvas');
-    const ctxHZ = canvasHZ.getContext('2d');
+//     //draw hanzi text layer
+//     const canvasHZ = document.createElement('canvas');
+//     const ctxHZ = canvasHZ.getContext('2d');
 
-    if(mql.matches) {
-    ctxHZ.canvas.height = 320;
-    ctxHZ.canvas.width = 320;
-} else {
-    ctxHZ.canvas.height = 500;
-    ctxHZ.canvas.width = 500;
-}
-    ctxHZ.fillStyle = "#f0f0f0";
-    console.log(ctxHZ)
-    ctxHZ.textBaseline = 'middle';
-    ctxHZ.textAlign = "center";
-    ctxHZ.font = "50vh Bishunziti";
-//     let f = new FontFace("Bishunziti", "url('fonts/bishunziti.ttf')");
-//     f.load().then(() => {
-//         console.log(f)
-//         ctxHZ.font = `normal 90px ${f.family}`;
-// });
-    // ctxHZ.strokeText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2, 2);
-    ctxHZ.fillText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2);
-    // ctx.fillText(selectedHanzi, 150, 150)
-    ctx.drawImage(canvasHZ, 0, 0);
-    ctxHZ.clearRect(0, 0, ctxHZ.canvas.width, ctxHZ.canvas.height);
+//     if(mql.matches) {
+//     ctxHZ.canvas.height = 320;
+//     ctxHZ.canvas.width = 320;
+// } else {
+//     ctxHZ.canvas.height = 500;
+//     ctxHZ.canvas.width = 500;
+// }
+//     ctxHZ.fillStyle = "#f0f0f0";
+//     ctxHZ.textBaseline = 'middle';
+//     ctxHZ.textAlign = "center";
+//     ctxHZ.font = "50vh Bishunziti";
+// //     let f = new FontFace("Bishunziti", "url('fonts/bishunziti.ttf')");
+// //     f.load().then(() => {
+// //         console.log(f)
+// //         ctxHZ.font = `normal 90px ${f.family}`;
+// // });
+//     // ctxHZ.strokeText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2, 2);
+//     ctxHZ.fillText(selectedHanzi, ctxHZ.canvas.width/2, ctxHZ.canvas.height/2);
+//     // ctx.fillText(selectedHanzi, 150, 150)
+//     ctx.drawImage(canvasHZ, 0, 0);
+//     ctxHZ.clearRect(0, 0, ctxHZ.canvas.width, ctxHZ.canvas.height);
     
     
-    //ctx.drawImage(can2, 0, 0) // draw the (saved) first canvas back to itself
-    ctx.drawImage(canvas2, 0, 0);
+//     //ctx.drawImage(can2, 0, 0) // draw the (saved) first canvas back to itself
+//     ctx.drawImage(canvas2, 0, 0);
 
     //Saving canvas:
     const data = canvas.toDataURL('image/png');
@@ -200,7 +214,8 @@ function save(canvas) {
 
     //Restoring canvas:
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.drawImage(canvas2, 0, 0);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   }
 
   
@@ -211,14 +226,30 @@ function save(canvas) {
   const form = document.getElementById('form');
   
   function showHanziBG(hanzi) {
-    if(canvasContainer.querySelector('.bg-hanzi')) {
-        canvasContainer.querySelector('.bg-hanzi').remove();
-    }
-    const hanziEl = document.createElement('span');  
-    hanziEl.innerHTML = hanzi;
-    hanziEl.classList.add('bg-hanzi');
-    canvasContainer.prepend(hanziEl);
-    selectedHanzi = hanzi;
+    // if(canvasContainer.querySelector('.bg-hanzi')) {
+    //     canvasContainer.querySelector('.bg-hanzi').remove();
+    // }
+    // const hanziEl = document.createElement('span');  
+    // hanziEl.innerHTML = hanzi;
+    // hanziEl.classList.add('bg-hanzi');
+    // canvasContainer.prepend(hanziEl);
+
+    //Clear canvas:
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //Draw hanzi:
+    setTimeout(() => {
+        selectedHanzi = hanzi;
+        ctx.fillStyle = "#f0f0f0";
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = "center";
+        if(mql.matches){
+            ctx.font = "30vh Bishunziti";
+        } else {
+            ctx.font = "55vh Bishunziti";
+        }
+        ctx.fillText(selectedHanzi, ctx.canvas.width/2, ctx.canvas.height/2);
+    }, 500)
   }
 
   form.addEventListener('submit', e => {
