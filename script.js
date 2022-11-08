@@ -23,7 +23,7 @@ loadFont.style.color = 'transparent';
 document.body.appendChild(loadFont);
 
 // (async function loadFonts() {
-//     const font = new FontFace("Bishunziti", "url(./fonts/bishunziti-webfont.woff2)");
+//     const font = new FontFace("Bishunziti", "url('bishunziti.woff2')");
 //     // wait for font to be loaded
 //     await font.load();
 //     // add font to document
@@ -238,18 +238,20 @@ function save(canvas) {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     //Draw hanzi:
-    setTimeout(() => {
+    
         selectedHanzi = hanzi;
         ctx.fillStyle = "#f0f0f0";
         ctx.textBaseline = 'middle';
         ctx.textAlign = "center";
+
+        
         if(mql.matches){
             ctx.font = "30vh Bishunziti";
         } else {
             ctx.font = "55vh Bishunziti";
         }
         ctx.fillText(selectedHanzi, ctx.canvas.width/2, ctx.canvas.height/2);
-    }, 500)
+
   }
 
   form.addEventListener('submit', e => {

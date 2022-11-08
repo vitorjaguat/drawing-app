@@ -5,12 +5,7 @@
 
 /* @font-face {
     font-family: 'Bishunziti';
-    /* src: url('myfont.eot'); */
-    src: url('fonts/bishunziti-webfont.woff') format('woff'),
-         url('fonts/bishunziti-webfont.woff2') format('woff2');
-         /* url('bishunziti.svg#bishunziti') format('svg'); */
-    font-weight: normal;
-    font-style: normal;
+    src: url('/bishunziti.woff') format('woff');
 } */
 
 
