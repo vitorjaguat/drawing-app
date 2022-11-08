@@ -126,7 +126,7 @@ clearEl.addEventListener('click', () => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     //Fill the canvas with white background:
     ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 })
 
 
