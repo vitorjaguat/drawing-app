@@ -8,9 +8,16 @@ const clearEl = document.getElementById('clear');
 
 let selectedHanzi = '';
 
-const ctx = canvas.getContext('2d');
+let size = 6;
+let isPressed = false;
+let color = 'black';
+let x;
+let y;
+
+//Set up canvas and context
 const mql = window.matchMedia("(max-width: 600px)");
-// console.log(mql);
+const ctx = canvas.getContext('2d');
+
 if(mql.matches) {
     ctx.canvas.height = 320;
     ctx.canvas.width = 320;
@@ -30,17 +37,13 @@ if(mql.matches) {
 // });
 // ctx.canvas.height = 320;
 // ctx.canvas.width = 320;
-console.log(ctx);
+// console.log(ctx);
 
 // Fill the canvas with white background:
 // ctx.fillStyle = "white";
 // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-let size = 6;
-let isPressed = false;
-let color = 'black';
-let x;
-let y;
+
 
 canvas.addEventListener('mousedown', (e) => {
     isPressed = true;
@@ -124,13 +127,10 @@ function save(canvas) {
     //setting up canvas2
     const canvas2 = document.createElement('canvas');
     const ctx2 = canvas2.getContext('2d');
-    const mql2 = window.matchMedia("(max-width: 600px)");
 
-    if(mql2.matches) {
+    if(mql.matches) {
     ctx2.canvas.height = 320;
     ctx2.canvas.width = 320;
-    // canvasContainer.style.width = '320px';
-    // canvasContainer.style.height = '320px';
 } else {
     ctx2.canvas.height = 500;
     ctx2.canvas.width = 500;
@@ -145,13 +145,10 @@ function save(canvas) {
     //set up white BG:
     const canvasBG = document.createElement('canvas');
     const ctxBG = canvasBG.getContext('2d');
-    const mql3 = window.matchMedia("(max-width: 600px)");
 
-    if(mql3.matches) {
+    if(mql.matches) {
     ctxBG.canvas.height = 320;
     ctxBG.canvas.width = 320;
-    // canvasContainer.style.width = '320px';
-    // canvasContainer.style.height = '320px';
 } else {
     ctxBG.canvas.height = 500;
     ctxBG.canvas.width = 500;
@@ -166,13 +163,10 @@ function save(canvas) {
     //draw hanzi text layer (Not ready)
     const canvasHZ = document.createElement('canvas');
     const ctxHZ = canvasHZ.getContext('2d');
-    const mql4 = window.matchMedia("(max-width: 600px)");
 
-    if(mql4.matches) {
+    if(mql.matches) {
     ctxHZ.canvas.height = 320;
     ctxHZ.canvas.width = 320;
-    // canvasContainer.style.width = '320px';
-    // canvasContainer.style.height = '320px';
 } else {
     ctxHZ.canvas.height = 500;
     ctxHZ.canvas.width = 500;
