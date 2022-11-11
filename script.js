@@ -90,12 +90,12 @@ canvas.addEventListener('mousemove', (e) => {
       x = undefined;
       y = undefined;
     }
-    if (isPressed && x2 <= 2) {
+    if (isPressed && x2 <= 3) {
       isPressed = false;
       x = undefined;
       y = undefined;
     }
-    if (isPressed && y2 <= 2) {
+    if (isPressed && y2 <= 3) {
       isPressed = false;
       x = undefined;
       y = undefined;
