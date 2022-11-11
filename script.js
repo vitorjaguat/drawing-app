@@ -80,22 +80,22 @@ canvas.addEventListener('mousemove', (e) => {
     console.log(x, y, x2, y2);
 
     //Mouse pressed goes outside the canvas
-    if (isPressed && x2 >= ctx.canvas.width - 3) {
+    if (isPressed && x2 >= ctx.canvas.width - 15) {
       isPressed = false;
       x = undefined;
       y = undefined;
     }
-    if (isPressed && y2 >= ctx.canvas.height - 3) {
+    if (isPressed && y2 >= ctx.canvas.height - 15) {
       isPressed = false;
       x = undefined;
       y = undefined;
     }
-    if (isPressed && x2 <= 3) {
+    if (isPressed && x2 <= 15) {
       isPressed = false;
       x = undefined;
       y = undefined;
     }
-    if (isPressed && y2 <= 3) {
+    if (isPressed && y2 <= 15) {
       isPressed = false;
       x = undefined;
       y = undefined;
