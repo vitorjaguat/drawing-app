@@ -77,6 +77,29 @@ canvas.addEventListener('mousemove', (e) => {
     drawLine(x, y, x2, y2);
     x = x2;
     y = y2;
+    console.log(x, y, x2, y2);
+
+    //Mouse pressed goes outside the canvas
+    if (isPressed && x2 >= ctx.canvas.width - 2) {
+      isPressed = false;
+      x = undefined;
+      y = undefined;
+    }
+    if (isPressed && y2 >= ctx.canvas.height - 2) {
+      isPressed = false;
+      x = undefined;
+      y = undefined;
+    }
+    if (isPressed && x2 === 0) {
+      isPressed = false;
+      x = undefined;
+      y = undefined;
+    }
+    if (isPressed && y2 === 0) {
+      isPressed = false;
+      x = undefined;
+      y = undefined;
+    }
   }
 });
 
