@@ -2,4 +2,4 @@
 - Mudar método de inserção de hanziBG: em vez de sobrepor uma div, inserir no próprio canvas através do ctx de um canvas virtual (já está pronto na função save); daí na hora de salvar não precisa criar de novo. OK
 
 20221108
-- Compress font, choose other fonts
+- Compress font (see how to use fontface on css for woff format), choose other fonts
